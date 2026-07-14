@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>TransplantChain · Demo</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-icon">⛓</span>
+      <div>
+        <h1>TransplantChain</h1>
+        <p>Gestión transparente de órganos con Blockchain + IA</p>
+      </div>
+    </div>
+    <nav class="tabs">
+      <button class="tab-btn active" data-view="dashboard">Dashboard</button>
+      <button class="tab-btn" data-view="registro">Registrar Donante/Órgano</button>
+      <button class="tab-btn" data-view="pacientes">Lista de Pacientes</button>
+      <button class="tab-btn" data-view="login">Hospital / Login</button>
+    </nav>
+  </header>
+
+  <main>
+
+    <section id="view-dashboard" class="view active">
+      <div class="cards">
+        <div class="card">
+          <span class="card-label">Donantes registrados</span>
+          <span class="card-value" id="stat-donantes">-</span>
+        </div>
+        <div class="card">
+          <span class="card-label">Órganos disponibles</span>
+          <span class="card-value" id="stat-disponibles">-</span>
+        </div>
+        <div class="card">
+          <span class="card-label">Pacientes en lista de espera</span>
+          <span class="card-value" id="stat-pacientes">-</span>
+        </div>
+        <div class="card highlight">
+          <span class="card-label">Trasplantes confirmados (Blockchain)</span>
+          <span class="card-value" id="stat-confirmados">-</span>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h2>Registro inmutable de asignaciones</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Fecha</th>
+              <th>Órgano</th>
+              <th>Receptor</th>
+              <th>Hospital destino</th>
+              <th>Hash (tx)</th>
+              <th>Estado</th>
+            </tr>
+          </thead>
+          <tbody id="tabla-asignaciones">
+            <tr><td colspan="6" class="empty-row">Todavía no hay asignaciones confirmadas.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="view-registro" class="view">
+      <div class="panel form-panel">
+        <h2>Registrar nuevo donante / órgano</h2>
+        <form id="form-donante">
+          <label>
+            Hospital de origen
+            <input type="text" id="input-hospital" placeholder="Ej: Hospital Italiano" required />
+          </label>
+          <label>
+            Órgano
+            <select id="input-organo" required>
+              <option value="Riñón">Riñón</option>
+              <option value="Hígado">Hígado</option>
+              <option value="Corazón">Corazón</option>
+              <option value="Pulmón">Pulmón</option>
+            </select>
+          </label>
+          <label>
+            Grupo sanguíneo
+            <select id="input-grupo" required>
+              <option>O-</option>
+              <option>O+</option>
+              <option>A-</option>
+              <option>A+</option>
+              <option>B-</option>
+              <option>B+</option>
+              <option>AB-</option>
+              <option>AB+</option>
+            </select>
+          </label>
+          <button type="submit">Registrar en el sistema</button>
+        </form>
+        <p id="registro-msg" class="msg"></p>
+      </div>
+
+      <div class="panel">
+        <h2>Donantes / órganos registrados</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Hospital de origen</th>
+              <th>Órgano</th>
+              <th>Grupo sanguíneo</th>
+              <th>Estado</th>
+            </tr>
+          </thead>
+          <tbody id="tabla-donantes"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="view-pacientes" class="view">
+      <div class="panel form-panel">
+        <h2>Agregar paciente a lista de espera</h2>
+        <form id="form-paciente">
+          <label>
+            Nombre del paciente
+            <input type="text" id="input-paciente-nombre" placeholder="Ej: Juan Pérez" required />
+          </label>
+          <label>
+            Órgano necesario
+            <select id="input-paciente-organo" required>
+              <option value="Riñón">Riñón</option>
+              <option value="Hígado">Hígado</option>
+              <option value="Corazón">Corazón</option>
+              <option value="Pulmón">Pulmón</option>
+            </select>
+          </label>
+          <label>
+            Grupo sanguíneo
+            <select id="input-paciente-grupo" required>
+              <option>O-</option>
+              <option>O+</option>
+              <option>A-</option>
+              <option>A+</option>
+              <option>B-</option>
+              <option>B+</option>
+              <option>AB-</option>
+              <option>AB+</option>
+            </select>
+          </label>
+          <label>
+            Urgencia (1-10)
+            <input type="number" id="input-paciente-urgencia" min="1" max="10" value="5" required />
+          </label>
+          <label>
+            Días en lista de espera
+            <input type="number" id="input-paciente-dias" min="0" value="0" required />
+          </label>
+          <label>
+            Distancia al hospital (km)
+            <input type="number" id="input-paciente-distancia" min="0" value="10" required />
+          </label>
+          <label>
+            Hospital
+            <input type="text" id="input-paciente-hospital" placeholder="Ej: Hospital Italiano" required />
+          </label>
+          <button type="submit">Agregar paciente</button>
+        </form>
+        <p id="paciente-msg" class="msg"></p>
+      </div>
+
+      <div class="panel">
+        <h2>Pacientes registrados</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Paciente</th>
+              <th>Hospital</th>
+              <th>Órgano</th>
+              <th>Grupo sanguíneo</th>
+              <th>Urgencia</th>
+              <th>Días</th>
+              <th>Distancia</th>
+            </tr>
+          </thead>
+          <tbody id="tabla-pacientes"></tbody>
+        </table>
+      </div>
+
+      <div class="panel">
+        <h2>Calcular compatibilidad y prioridad</h2>
+        <label class="select-organo-label">
+          Seleccionar órgano disponible
+          <select id="select-organo-disponible"></select>
+        </label>
+        <p class="hint">El score combina urgencia médica, tiempo en lista de espera y distancia al hospital (simula el módulo de IA del dossier).</p>
+      </div>
+
+      <div class="panel">
+        <h2>Ranking de candidatos compatibles</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Paciente</th>
+              <th>Hospital</th>
+              <th>Grupo sanguíneo</th>
+              <th>Urgencia</th>
+              <th>Días en espera</th>
+              <th>Distancia (km)</th>
+              <th>Score</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="tabla-matching">
+            <tr><td colspan="9" class="empty-row">Elegí un órgano arriba para ver la lista de candidatos.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="view-login" class="view">
+      <div class="panel form-panel">
+        <h2>Login de hospital / administrador</h2>
+        <form id="form-login">
+          <label>
+            Email
+            <input type="email" id="input-email" placeholder="admin@transplantchain.local" required />
+          </label>
+          <label>
+            Contraseña
+            <input type="password" id="input-password" placeholder="Tu contraseña" required />
+          </label>
+          <button type="submit">Ingresar</button>
+        </form>
+        <p id="login-msg" class="msg"></p>
+        <div id="user-info" class="hidden">
+          <p>Usuario: <strong id="user-name"></strong></p>
+          <p>Rol: <strong id="user-role"></strong></p>
+          <p>Hospital: <strong id="user-hospital"></strong></p>
+          <button id="btn-logout" class="secondary">Cerrar sesión</button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="modal-confirmacion" class="modal hidden">
+    <div class="modal-content">
+      <h3>✅ Asignación confirmada</h3>
+      <p id="modal-texto"></p>
+      <p class="modal-hash"></p>
+      <button id="modal-cerrar">Cerrar</button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
