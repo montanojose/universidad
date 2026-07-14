@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sección de Alumnos – Base de Datos Escolar</title>
+  <link rel="stylesheet" href="alumnos.css" />
+</head>
+<body>
+
+  <!-- Header con título centrado y botón de logout -->
+  <header class="header-alumnos">
+    <h1 class="titulo-principal">Bienvenido a la Sección de Alumnos</h1>
+    <!-- 🔹 Aquí agregamos el onclick -->
+    <a href="logout.php" class="btn-logout" onclick="return confirmarLogout()">🚪 Cerrar sesión</a>
+  </header>
+
+  <!-- Introducción -->
+  <p class="introduccion">
+    En esta sección podrá ingresar y registrar la información de los alumnos de su escuela 
+    de manera rápida y organizada. Complete el siguiente formulario con los datos correspondientes 
+    para mantener actualizada la base de datos institucional.
+  </p>
+
+  <!-- Subtítulo -->
+  <h2 class="subtitulo-izquierda">Ingresa un alumno</h2>
+
+  <!-- Sección de formulario -->
+  <section class="alumnos-section">
+    <form action="procesar_formulario.php" method="POST" class="formulario">
+      <label>Nombre completo
+        <input type="text" name="nombre" placeholder="Ej: Bruno Sileci" required />
+      </label>
+
+      <label>DNI
+        <input type="text" name="dni" placeholder="Ej: 40123456" required />
+      </label>
+
+      <label>Correo electrónico
+        <input type="email" name="email" placeholder="Ej: alumno@escuela.com" required />
+      </label>
+
+      <label>Fecha de nacimiento
+        <input type="date" name="fecha_nacimiento" required />
+      </label>
+
+      <label>Curso
+        <input type="text" name="curso" placeholder="Ej: 5° 5°" required />
+      </label>
+
+      <label>Teléfono de emergencia
+        <input type="tel" name="telefono_emergencia" placeholder="Ej: +54 9 11 1234 5678" />
+      </label>
+
+      <label>Nacionalidad
+        <input type="text" name="nacionalidad" placeholder="Ej: Argentina" />
+      </label>
+
+      <label>Dirección
+        <input type="text" name="direccion" placeholder="Calle, número, localidad" />
+      </label>
+
+      <label>Materia más dificultosa
+        <input type="text" name="materia_dificultosa" placeholder="Ej: Matemáticas" />
+      </label>
+
+      <label>Obra social
+        <input type="text" name="obra_social" placeholder="Ej: OSDE" />
+      </label>
+
+      <label>Turno
+        <select name="turno">
+          <option value="manana">Mañana</option>
+          <option value="tarde">Tarde</option>
+          <option value="noche">Noche</option>
+        </select>
+      </label>
+
+      <label>Observaciones
+        <textarea name="observaciones" rows="3" placeholder="Información adicional..."></textarea>
+      </label>
+
+      <button type="submit">Registrar Alumno</button>
+    </form>
+
+    <div class="ver-base">
+      <a href="ver_alumnos.php" class="btn-ver">📋 Ver base de datos de alumnos</a>
+    </div>
+  </section>
+
+  <!-- 🔹 Script del mensaje de confirmación -->
+  <script>
+    function confirmarLogout() {
+      return confirm("¿Seguro que deseas cerrar sesión?");
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>EduData – Plataforma Escolar</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <meta name="description" content="EduData: Plataforma digital para la gestión escolar. Administra información de alumnos fácilmente.">
+</head>
+<body>
+  <!-- 🔹 Navegación superior -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <div class="brand">
+        <a href="#inicio" class="brand-link">EduData</a>
+      </div>
+
+      <ul class="menu">
+        <li><a class="link" href="#inicio">Inicio</a></li>
+        <li><a class="link" href="#titulo-nosotros">Nosotros</a></li>
+        <li><a class="link" href="#contacto">Contáctanos</a></li>
+        <li><a class="link" href="login.html">Alumno</a></li>
+        <li><a class="link" href="login_profesor.html">Profesor</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <!-- Inicio -->
+    <section id="inicio">
+      <h1 class="hero-title">Bienvenido a <span>EduData</span></h1>
+      <p class="hero-sub">
+        EduData es tu aliado digital para la gestión escolar. Con nuestra plataforma, 
+        las instituciones pueden registrar y consultar información de alumnos de manera 
+        rápida, segura y ordenada. Todo en un solo lugar, siempre accesible.
+      </p>
+    </section>
+
+    <div class="frase-educativa">
+      “Los datos bien usados no son números:<br>son caminos que guían el futuro de la educación.”
+    </div>
+
+    <!-- Nosotros -->
+    <section id="titulo-nosotros">
+      <h2 class="seccion-titulo">Nosotros</h2>
+      <p>Nuestro proyecto nació con el objetivo de facilitar la gestión de información escolar.</p>
+      <p>La información se almacena en una base de datos centralizada, lo que permite mantener los registros organizados y disponibles en cualquier momento.</p>
+      <p>Creemos que la tecnología puede simplificar las tareas administrativas y permitir que las escuelas se enfoquen en lo más importante: la educación de sus estudiantes.</p>
+
+      <div class="nosotros-imagen">
+        <img src="img.png" alt="Aula moderna con computadoras y gráficos educativos" />
+      </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto" class="contacto">
+      <div class="contacto-card">
+        <h2 class="seccion-titulo">Contáctanos</h2>
+
+        <p>Mi nombre es <strong>Bruno Sileci</strong>.</p>
+        <p>Teléfono: <a href="tel:2616417121">2616417121</a></p>
+
+        <hr style="margin:20px 0; border: none; border-top: 1px solid var(--muted);" />
+
+        <p>Mi nombre es <strong>José Montaño</strong>.</p>
+        <p>Teléfono: <a href="tel:2612187843">2612187843</a></p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    © 2025 EduData — Todos los derechos reservados.
+  </footer>
+
+  <!-- Script: Scroll suave -->
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(enlace => {
+      enlace.addEventListener('click', function(e) {
+        const destino = document.querySelector(this.getAttribute('href'));
+        if (destino) {
+          e.preventDefault();
+          destino.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>

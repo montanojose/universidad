@@ -1,0 +1,155 @@
+/* Variables de colores */
+:root {
+  --bg: #0f172a;
+  --bg-soft: #111827;
+  --text: #e5e7eb;
+  --muted: #94a3b8;
+  --brand: #2563eb;
+  --hover: #374151;
+  --accent: #f59e0b;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* Header con botón de logout */
+.header-alumnos {
+  background-color: var(--bg);
+  padding: 20px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.titulo-principal {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--accent);
+  text-align: center;
+}
+
+/* Botón Cerrar sesión arriba a la derecha */
+.btn-logout {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: #dc2626;
+  color: white;
+  padding: 8px 15px;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.btn-logout:hover {
+  background-color: #b91c1c;
+}
+
+/* Introducción y subtítulo */
+.introduccion {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 0 16px;
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.5;
+  text-align: justify;
+}
+
+.subtitulo-izquierda {
+  max-width: 800px;
+  margin: 20px auto 6px auto;
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: var(--accent);
+  text-align: center;
+  text-shadow: 0 2px 8px rgba(37,99,235,0.2);
+}
+
+/* Contenedor principal */
+.alumnos-section {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 24px 20px;
+  background: linear-gradient(180deg, rgba(37,99,235,.15) 0%, rgba(245,158,11,.1) 100%);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  text-align: center;
+}
+
+/* Formulario */
+.formulario label {
+  display: block;
+  text-align: left;
+  margin-bottom: 16px;
+  color: var(--muted);
+  font-size: 1rem;
+}
+
+.formulario input[type="text"],
+.formulario input[type="email"],
+.formulario input[type="date"],
+.formulario input[type="tel"],
+.formulario select,
+.formulario textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  background: #1e293b;
+  color: var(--text);
+  margin-top: 6px;
+}
+
+.formulario input::placeholder,
+.formulario textarea::placeholder {
+  color: #64748b;
+}
+
+.formulario button[type="submit"] {
+  width: 100%;
+  background: var(--brand);
+  color: #fff;
+  padding: 12px 0;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  margin-top: 12px;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.formulario button[type="submit"]:hover {
+  background: var(--accent);
+  transform: scale(1.03);
+}
+
+/* Botón para ver la base de datos */
+.ver-base {
+  text-align: center;
+  margin-top: 18px;
+}
+
+.btn-ver {
+  display: inline-block;
+  background: transparent;
+  color: var(--text);
+  border: 2px solid var(--accent);
+  padding: 10px 18px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.btn-ver:hover {
+  background: var(--accent);
+  color: var(--bg);
+}

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>EduData – Iniciar sesión</title>
+  <link rel="stylesheet" href="login.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main>
+    <section class="login-section">
+      <h2 class="seccion-titulo">Iniciar sesión</h2>
+
+      <form action="procesar_login.php" method="POST">
+        <label>
+          Correo de la escuela
+          <input type="email" name="correo_escuela" placeholder="ejemplo@escuela.com" required>
+        </label>
+
+        <label>
+          Contraseña
+          <input type="password" name="password" placeholder="••••••••" required>
+        </label>
+
+        <button type="submit">Entrar</button>
+      </form>
+
+      <p>¿No tienes cuenta? <a href="registro.html">Crear cuenta</a></p>
+      <!-- 🔹 botón separado con su clase -->
+      <a href="index.html" class="btn-volver">⬅ Volver al inicio</a>      
+    </section>
+  </main>
+</body>
+</html>

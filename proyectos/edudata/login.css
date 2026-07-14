@@ -1,0 +1,93 @@
+
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* Caja principal */
+.login-section {
+  max-width: 400px;
+  margin: 60px auto;
+  padding: 32px 24px;
+  background: linear-gradient(180deg, rgba(37,99,235,.15) 0%, rgba(245,158,11,.1) 100%);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  text-align: center;
+}
+
+.login-section h2.seccion-titulo {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 8px rgba(37,99,235,0.2);
+  color: var(--accent);
+}
+
+.login-section form label {
+  display: block;
+  margin-bottom: 16px;
+  color: var(--muted);
+  font-size: 1rem;
+  text-align: left;
+}
+
+.login-section input[type="email"],
+.login-section input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  background: #1e293b;
+  color: var(--text);
+  margin-top: 6px;
+}
+
+.login-section input::placeholder {
+  color: #64748b;
+}
+
+.login-section button[type="submit"] {
+  width: 100%;
+  background: var(--brand);
+  color: #fff;
+  padding: 12px 0;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  margin-top: 12px;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.login-section button[type="submit"]:hover {
+  background: var(--accent);
+  transform: scale(1.03);
+}
+
+.login-section p {
+  margin-top: 18px;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.login-section p a {
+  color: var(--brand);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.login-section p a:hover {
+  color: var(--accent);
+}
+
+/* segunda caja (registro) */
+.login-section + .login-section {
+  margin-top: 40px;
+}
+
+.login-section + .login-section h2.seccion-titulo {
+  color: var(--brand);
+}

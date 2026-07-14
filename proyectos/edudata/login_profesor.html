@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Login Profesor | EduData</title>
+  <link rel="stylesheet" href="login_profesor.css">
+</head>
+<body>
+  <main class="login-container">
+    <section class="login-box">
+      <h2>Ingreso Profesores</h2>
+
+      <form action="validar_profesor.php" method="POST" novalidate>
+        <label>
+          Correo institucional
+          <input type="email" name="correo" placeholder="profesor@escuela.com" required>
+        </label>
+
+        <label>
+          Contraseña
+          <input type="password" name="password" placeholder="********" required>
+        </label>
+
+        <button type="submit">Ingresar</button>
+      </form>
+
+      <a href="index.html" class="volver">⬅ Volver al inicio</a>
+    </section>
+  </main>
+</body>
+</html>

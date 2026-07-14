@@ -1,0 +1,128 @@
+/* ====== login_profesor.css ======
+   Hoja de estilos específica para login_profesor.html
+   (independiente: define sus propias variables) */
+
+:root {
+  --bg: #0f172a;
+  --bg-soft: #111827;
+  --text: #e5e7eb;
+  --muted: #94a3b8;
+  --brand: #2563eb;
+  --hover: #374151;
+  --accent: #f59e0b;
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+/* Contenedor general */
+.login-container {
+  width: 100%;
+  max-width: 480px;
+  padding: 8px;
+}
+
+/* Tarjeta */
+.login-box {
+  background: linear-gradient(180deg, rgba(37,99,235,.15) 0%, rgba(245,158,11,.10) 100%);
+  border: 1px solid #1f2937;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.45);
+  padding: 28px 24px;
+}
+
+/* Títulos */
+.login-box h2 {
+  margin: 0 0 6px 0;
+  font-size: 1.9rem;
+  font-weight: 800;
+  letter-spacing: .3px;
+  color: var(--accent);
+  text-align: center;
+  text-shadow: 0 2px 8px rgba(37,99,235,.2);
+}
+.login-box p.subt {
+  margin: 0 0 18px 0;
+  text-align: center;
+  color: var(--muted);
+  font-size: .95rem;
+}
+
+/* Formulario */
+.login-box form label {
+  display: block;
+  color: var(--muted);
+  font-size: 0.98rem;
+  margin-bottom: 14px;
+}
+
+.login-box input[type="email"],
+.login-box input[type="password"] {
+  width: 100%;
+  margin-top: 6px;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  background: #1e293b;
+  color: var(--text);
+}
+.login-box input::placeholder { color: #64748b; }
+
+/* Botón */
+.login-box button[type="submit"] {
+  width: 100%;
+  margin-top: 10px;
+  padding: 12px 0;
+  border: none;
+  border-radius: 10px;
+  background: var(--brand);
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background .25s, transform .2s;
+}
+.login-box button[type="submit"]:hover {
+  background: var(--accent);
+  transform: translateY(-1px);
+}
+
+/* Enlaces secundarios */
+.login-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 14px;
+}
+.login-actions a {
+  color: var(--brand);
+  text-decoration: none;
+  font-weight: 600;
+}
+.login-actions a:hover { color: var(--accent); }
+
+/* Link volver */
+.login-box .volver {
+  display: inline-block;
+  margin-top: 16px;
+  color: var(--brand);
+  text-decoration: none;
+  font-weight: 600;
+}
+.login-box .volver:hover { color: var(--accent); }
+
+/* Responsivo */
+@media (max-width: 420px) {
+  .login-box { padding: 22px 18px; }
+  .login-box h2 { font-size: 1.6rem; }
+}

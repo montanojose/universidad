@@ -1,0 +1,151 @@
+:root {
+  --bg: #0f172a;
+  --bg-soft: #111827;
+  --text: #e5e7eb;
+  --muted: #94a3b8;
+  --brand: #2563eb;
+  --hover: #374151;
+  --accent: #f59e0b;
+  --danger: #ef4444;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* Header */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  background: var(--bg-soft);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.header h1 {
+  margin: 0;
+  font-size: 1.25rem;
+  color: var(--accent);
+}
+.header .acciones {
+  display: flex;
+  gap: 10px;
+}
+
+/* Mensajes */
+.mensaje-exito {
+  max-width: 1040px;
+  margin: 14px auto;
+  padding: 10px 12px;
+  background: rgba(34,197,94,0.12);
+  border: 1px solid rgba(34,197,94,0.5);
+  color: #bbf7d0;
+  border-radius: 8px;
+}
+
+/* Tabla */
+.tabla-wrap {
+  max-width: 1040px;
+  margin: 0 auto 28px;
+  padding: 0 12px;
+  overflow-x: auto;
+}
+
+.tabla-alumnos {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--bg-soft);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+}
+
+.tabla-alumnos thead th {
+  background: var(--brand);
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.4px;
+  padding: 10px 12px;
+  text-align: left;
+}
+
+.tabla-alumnos tbody td {
+  padding: 10px 12px;
+  font-size: 0.95rem;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.tabla-alumnos tbody tr:nth-child(even) {
+  background: #1b2436;
+}
+.tabla-alumnos tbody tr:hover {
+  background: var(--hover);
+}
+
+/* Acciones */
+.acciones-td {
+  white-space: nowrap;
+}
+.acciones-td a {
+  display: inline-block;
+  margin-right: 6px;
+  margin-bottom: 6px;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 6px 12px;
+  transition: background 0.2s ease, transform 0.1s ease, color 0.2s ease;
+  border: none;
+}
+
+/* Botones */
+.btn-logout {
+  background-color: var(--danger);
+  color: #0f172a;
+}
+.btn-logout:hover {
+  background-color: #dc2626;
+  transform: scale(1.04);
+}
+
+.btn-editar {
+  background-color: var(--accent);
+  color: #0f172a;
+}
+.btn-editar:hover {
+  background-color: #fbbf24;
+  transform: scale(1.04);
+}
+
+.btn-borrar {
+  background-color: var(--danger);
+  color: #0f172a;
+}
+.btn-borrar:hover {
+  background-color: #dc2626;
+  transform: scale(1.04);
+}
+
+/* Link “Volver” (si lo usás) */
+.btn-volver {
+  background-color: var(--brand);
+  color: #0f172a;
+}
+.btn-volver:hover {
+  background-color: #3b82f6;
+  transform: scale(1.04);
+}
+
+/* Vacío */
+.sin-alumnos {
+  text-align: center;
+  color: var(--muted);
+  margin: 18px 0;
+}
